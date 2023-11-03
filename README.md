@@ -1,3 +1,7 @@
-# Python Package Exercise
+# PyGameBox
 
-A little exercise to create a Python package, build it, test it, distribute it, and use it. See [instructions](./instructions.md) for details.
+## Team Members
+
+* [Aavishkar Gautam](https://github.com/aavishkar6)
+* [Avaneesh Devkota](https://github.com/avaneeshdevkota)
+* [Soyuj Jung Basnet](https://github.com/basnetsoyuj)
