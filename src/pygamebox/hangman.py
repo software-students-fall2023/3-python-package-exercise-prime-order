@@ -1,5 +1,6 @@
 import requests
-class Hangman():
+
+class Hangman:
     def __init__(self, length):
         self.word = self.get_word(length)
         self.guesses = 0
@@ -51,6 +52,3 @@ class Hangman():
                     self.guesses += 1
         print('You lose!')
         return False
-    
-word = Hangman(4)
-word.play()

@@ -23,8 +23,6 @@ def test_check_win():
 
 def test_play():
     hangman = Hangman()
-    
-
     pass
 
 
