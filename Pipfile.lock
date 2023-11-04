@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "bcbe07ee8c0cc3642338f4025e82375f2e902e698c5808d9e78bb3e17cc88a0a"
+            "sha256": "1fb373fd3aab49a5a714d9d9631a77628fbd79e83be0bd1a5567bfd89c5198ea"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,13 +16,12 @@
         ]
     },
     "default": {
-        "colorama": {
+        "english-words": {
             "hashes": [
-                "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44",
-                "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"
+                "sha256:a4105c57493bb757a3d8973fcf8e1dc05e7ca09c836dff467c3fb445f84bc43d"
             ],
-            "markers": "sys_platform == 'win32'",
-            "version": "==0.4.6"
+            "index": "pypi",
+            "version": "==2.0.1"
         },
         "iniconfig": {
             "hashes": [
