@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 pytest = "*"
 pygamebox = {file = ".", editable = true}
-requests = "*"
 colorama = "*"
 
 [dev-packages]

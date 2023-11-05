@@ -1,72 +1,111 @@
+import collections
 import random
-from pathlib import Path
 
-DATA_DIR = Path(__file__).parent.absolute() / "data"
+from .utils import read_words_file, get_random_word
+
 
 class WordScramble:
+    """
+    Implementation of a simple Word Scramble game.
+    The player is given a scrambled word and must guess the original word.
+    """
 
-    def __init__(self):
+    def __init__(self) -> None:
+        words = read_words_file()
+        self.words = {
+            'easy': list(filter(lambda x: len(x) <= 4, words)),
+            'medium': list(filter(lambda x: 5 <= len(x) <= 7, words)),
+            'hard': list(filter(lambda x: len(x) >= 8, words))
+        }
+        self.word = ''
+        self.scrambled_word = ''
+        self.attempts = 0
 
-        self.all_words = self.read_word_file(DATA_DIR / 'words.txt')
+    def reset(self, difficulty: str, attempts: int) -> None:
+        """
+        Resets the game.
 
-        self.easy_words = [word for word in self.all_words if len(word) <= 4]
-        self.medium_words = [word for word in self.all_words if 5 <= len(word) <= 7]
-        self.hard_words = [word for word in self.all_words if len(word) >= 8]
+        :param difficulty: The difficulty level.
+        :param attempts: The number of attempts.
+        :return: None
+        """
+        word_list = self.get_word_list(difficulty)
+        self.word = get_random_word(word_list)
+        self.scrambled_word = self.scramble_word(self.word)
+        self.attempts = attempts
 
-        self.difficulty_word_list = {1: self.easy_words,
-                                     2: self.medium_words,
-                                     3: self.hard_words}
-        
-    def read_word_file(self, file_path):
-        words = []
+    @staticmethod
+    def scramble_word(word: str) -> str:
+        """
+        Scrambles a word.
 
-        with open(file_path, 'r') as file:
-            for line in file:
-                words.append(line.strip().lower())
-        
-        return words
-
-    def get_random_word(self, word_list):
-        return random.choice(word_list)
-    
-    def scramble_word(self, word):
-
+        :param word: The word to scramble.
+        :return: The scrambled word.
+        """
         while True:
-
             word_chars = list(word)
             random.shuffle(word_chars)
             shuffled_word = ''.join(word_chars)
-            if (shuffled_word != word):
+            if shuffled_word != word:
                 return shuffled_word
-    
-    def get_word_list(self, difficulty):
-        return self.difficulty_word_list[difficulty]
-    
-    def play(self, difficulty = 1, attempts = 1):
 
-        word_list = self.get_word_list(difficulty)
-        word_to_guess = self.get_random_word(word_list)
-        scrambled_word = self.scramble_word(word_to_guess)
+    def get_word_list(self, difficulty: str) -> list[str]:
+        """
+        Gets a list of words based on the difficulty level.
 
-        print(f"Welcome to Word Scramble Game Level {difficulty} !")
-        print("Unscramble the word:", scrambled_word)
+        :param difficulty: The difficulty level.
+        :return: A list of words.
+        """
+        if difficulty not in self.words:
+            raise ValueError(f"Difficulty level must be one of {list(self.words.keys())}")
+        return self.words[difficulty]
 
-        while (attempts):
+    def validate_input(self, user_input: str) -> bool:
+        """
+        Validates the user's input.
 
-            user_input = input().lower()
-            if (user_input == word_to_guess):
-                print(f"You got it! The word was : {word_to_guess}")
-                break
+        :param user_input: The user's input.
+        :return: True if the user input contains same characters as the scrambled word, False otherwise.
+        """
+        if collections.Counter(user_input) == collections.Counter(self.scrambled_word):
+            return True
+        return False
+
+    def guess(self, user_input: str) -> bool:
+        """
+        Checks if the user's guess is correct.
+
+        :param user_input: The user's input.
+        :return: True if the guess is correct, False otherwise.
+        """
+        if user_input == self.word:
+            print(f"You got it! The word was: {self.word}")
+            return True
+
+        self.attempts -= 1
+        if self.attempts:
+            print(f"Incorrect. You have {self.attempts} attempt(s) left. Good Luck!")
+        else:
+            print(f"Incorrect. You have no attempts left. The word was {self.word}.")
+        return False
+
+    def play(self, difficulty: str = 'easy', attempts: int = 3) -> None:
+        """
+        Plays the game.
+
+        :param difficulty: The difficulty level.
+        :param attempts: The number of attempts.
+        :return: None
+        """
+        self.reset(difficulty=difficulty, attempts=attempts)
+
+        print(f"Welcome to Word Scramble Level {difficulty.capitalize()}! You have {attempts} attempts.")
+        print("Unscramble the word:", self.scrambled_word)
+
+        while self.attempts:
+            user_input = input('> ').lower().strip()
+            if self.validate_input(user_input):
+                if self.guess(user_input):
+                    break
             else:
-                attempts -= 1
-                if (attempts):
-                    print(f"Incorrect. You have {attempts} attempts left. Good Luck!")
-
-                else:
-                    print(f"Incorrect. You have no attempts left. The word was {word_to_guess}")
-
-
-
-
-
-
+                print("Guess must contain the same characters as the scrambled word.")
