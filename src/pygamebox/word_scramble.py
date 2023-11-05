@@ -18,7 +18,6 @@ class WordScramble:
                                      3: self.hard_words}
         
     def read_word_file(self, file_path):
-
         words = []
 
         with open(file_path, 'r') as file:

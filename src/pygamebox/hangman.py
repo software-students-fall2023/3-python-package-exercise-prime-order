@@ -1,20 +1,23 @@
-import requests
-
+import random
+from pathlib import Path
 class Hangman:
-    def __init__(self, length):
-        self.length = length
-        self.word = self.get_word(length)
+    def __init__(self):
+        self.path = Path(__file__).parent.absolute() / "data"
+        self.word = self.get_word(self.path / 'words.txt' )
         self.guesses = 0
-        self.reset(length)
+        self.reset()
 
-    def reset(self, length):
-        self.word = self.get_word(length)
+    def reset(self):
+        self.word = self.get_word(self.path / 'words.txt')
         self.guesses = 0
 
-    def get_word(self, length):
-        #returns words from a 
-        word = requests.get(f"https://random-word-api.herokuapp.com/word?length={length}").json()[0]
-        return word
+    def get_word(self, filepath):
+        #returns words from the words.txt file
+        with open(filepath, 'r') as f:
+            words = f.readlines()
+        words = [word.strip().lower() for word in words]
+
+        return random.choice(words)
     
     def get_user_guess(self):
         return input('Guess a letter: ')
