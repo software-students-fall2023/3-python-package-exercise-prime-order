@@ -1,0 +1,2 @@
+from pygamebox import Wordle
+

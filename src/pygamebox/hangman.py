@@ -1,5 +1,7 @@
 import string
 
+from colorama import Back, Style
+
 from .utils import read_words_file, get_random_word
 
 
@@ -45,6 +47,12 @@ class Hangman:
         return self.words[difficulty]
 
     def validate_input(self, user_input: str) -> bool:
+        """
+        Validates the user's input.
+
+        :param user_input: The user's input.
+        :return: True if the input is valid, False otherwise.
+        """
         if len(user_input) == 1 and user_input.isalpha() and user_input not in self.guessed_letters:
             return True
         return False
@@ -75,7 +83,7 @@ class Hangman:
 
         :return: None
         """
-        print()
+        print(' ' * (3 * 13 - len(self.word)), end='')
         for letter in self.word:
             if letter in self.guessed_letters:
                 print(letter.upper(), end=' ')
@@ -86,7 +94,12 @@ class Hangman:
         # words remaining to guess
         for c in string.ascii_lowercase:
             if c not in self.guessed_letters:
-                print(c.upper(), end=' ')
+                print(f' {c.upper()} ', end='')
+            elif c in self.word:
+                print(Back.GREEN + f' {c.upper()} ', end='')
+            else:
+                print(Back.RED + f' {c.upper()} ', end='')
+            print(Style.RESET_ALL, end='')
         print()
 
     def play(self, difficulty: str = 'easy', attempts: int = 10) -> None:
