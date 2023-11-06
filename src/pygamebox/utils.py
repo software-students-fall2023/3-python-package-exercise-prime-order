@@ -12,6 +12,7 @@ def read_file(file_path: Union[pathlib.Path, str]) -> list[str]:
     :param file_path: Path to the file.
     :return: A list of lines.
     """
+    file_path = pathlib.Path(DATA_DIR / file_path)
     with open(file_path, 'r', encoding='utf-8') as file:
         return [line.strip().lower() for line in file]
 

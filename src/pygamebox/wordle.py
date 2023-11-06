@@ -10,8 +10,9 @@ class Wordle:
     """
 
     def __init__(self) -> None:
-        self.words = read_file('wordle.txt')
-        self.word = ''
+        self.words_list = read_file('wordle.txt')
+        self.words = []
+        self.word = get_random_word(self.words_list)
         self.guesses = 0
 
     def reset(self):
@@ -35,14 +36,14 @@ class Wordle:
             user_word = self.get_user_input()
             if self.validate_input(user_word):
                 if self.check_win(user_word):
-                    print('CONGRATULATIONS! YOU WIN!')
                     self.words.append(self.word)
                     self.print_output(user_word)
-                    return
+                    return True
                 else:
                     self.words.append(user_word)
                     self.print_output(user_word)
                     self.guesses += 1
+        return False
 
     def check_win(self, predict):
         if predict == self.word:
