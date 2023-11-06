@@ -3,3 +3,4 @@ from .rock_paper_scissors import RockPaperScissors
 from .word_scramble import WordScramble
 from .hangman import Hangman
 from .wordle import Wordle
+from .utils import read_file, get_random_word
