@@ -9,6 +9,8 @@ class WordScramble:
     Implementation of a simple Word Scramble game.
     The player is given a scrambled word and must guess the original word.
     """
+    DEFAULT_ATTEMPTS = 3
+    DEFAULT_DIFFICULTY = 'easy'
 
     def __init__(self) -> None:
         words = read_words_file()
@@ -20,8 +22,9 @@ class WordScramble:
         self.word = ''
         self.scrambled_word = ''
         self.attempts = 0
+        self.reset()
 
-    def reset(self, difficulty: str, attempts: int) -> None:
+    def reset(self, difficulty: str = DEFAULT_DIFFICULTY, attempts: int = DEFAULT_ATTEMPTS) -> None:
         """
         Resets the game.
 
@@ -89,7 +92,7 @@ class WordScramble:
             print(f"Incorrect. You have no attempts left. The word was {self.word}.")
         return False
 
-    def play(self, difficulty: str = 'easy', attempts: int = 3) -> None:
+    def play(self, difficulty: str = DEFAULT_DIFFICULTY, attempts: int = DEFAULT_ATTEMPTS) -> None:
         """
         Plays the game.
 
