@@ -84,7 +84,7 @@ class RockPaperScissors:
         """
         return round_input >= 1
 
-    def play(self, rounds: int = 1) -> None:
+    def play(self, rounds: int = 3) -> None:
         """
         Runs the game for a specified number of rounds.
 

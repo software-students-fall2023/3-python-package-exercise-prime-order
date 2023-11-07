@@ -10,6 +10,8 @@ class Hangman:
     Implementation of a simple Hangman game.
     The player guesses letters to try to figure out the word.
     """
+    DEFAULT_ATTEMPTS = 10
+    DEFAULT_DIFFICULTY = 'easy'
 
     def __init__(self) -> None:
         words = read_words_file()
@@ -21,8 +23,9 @@ class Hangman:
         self.word = ''
         self.attempts = 0
         self.guessed_letters = set()
+        self.reset()
 
-    def reset(self, difficulty: str, attempts: int) -> None:
+    def reset(self, difficulty: str = DEFAULT_DIFFICULTY, attempts: int = DEFAULT_ATTEMPTS) -> None:
         """
         Resets the game.
 
@@ -102,7 +105,7 @@ class Hangman:
             print(Style.RESET_ALL, end='')
         print()
 
-    def play(self, difficulty: str = 'easy', attempts: int = 10) -> None:
+    def play(self, difficulty: str = DEFAULT_DIFFICULTY, attempts: int = DEFAULT_ATTEMPTS) -> None:
         """
         Plays the game.
 
@@ -120,6 +123,8 @@ class Hangman:
             user_input = input('> ').lower().strip()
             if self.validate_input(user_input):
                 if self.guess(user_input):
+                    self.print_partial()
+                    print("Congratulations! You win!")
                     break
             else:
                 print("Input must be a single letter that hasn't been guessed.")

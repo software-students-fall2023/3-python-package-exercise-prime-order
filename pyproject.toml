@@ -1,18 +1,24 @@
 [build-system]
 requires = ["setuptools", "wheel"]
 
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"pygamebox.data" = ["*.txt"]
+
 [project]
-name = "PyGameBox"
+name = "pygamebox"
 description = "A Python package for simple text-based games."
 version = "0.0.1"
 authors = [
-        {name ="Aavishkar Gautam", email ="ag8298@nyu.edu"},
-        {name ="Avaneesh Devkota", email ="ad5768@nyu.edu"},
-        {name ="Soyuj Jung Basnet", email ="soyuj@nyu.edu"}
-    ]
-license = {file = "LICENSE"}
+    { name = "Aavishkar Gautam", email = "ag8298@nyu.edu" },
+    { name = "Avaneesh Devkota", email = "ad5768@nyu.edu" },
+    { name = "Soyuj Jung Basnet", email = "soyuj@nyu.edu" }
+]
+license = { file = "LICENSE" }
 readme = "README.md"
-keywords = ["python","package","games","pygamebox"]
+keywords = ["python", "package", "games", "pygamebox"]
 requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -20,6 +26,10 @@ classifiers = [
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Operating System :: OS Independent",
 ]
+dependencies = [
+    "colorama"
+]
 
-[project.optional-dependencies]
-dev = ["pytest"]
+[project.urls]
+"Homepage" = "https://github.com/software-students-fall2023/3-python-package-exercise-prime-order"
+"Bug Tracker" = "https://github.com/software-students-fall2023/3-python-package-exercise-prime-order/issues"
