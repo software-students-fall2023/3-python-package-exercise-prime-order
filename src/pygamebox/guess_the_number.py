@@ -7,8 +7,10 @@ class GuessTheNumber:
     Implementation of a simple Guess the Number game. It generates a random number and the player guesses what it is.
     The game will tell the player if a guess is too low or too high and count how many guesses have been made.
     """
+    DEFAULT_START = 1
+    DEFAULT_END = 100
 
-    def __init__(self, start: int = 1, end: int = 100) -> None:
+    def __init__(self, start: int = DEFAULT_START, end: int = DEFAULT_END) -> None:
         self.start = start
         self.end = end
         self.number = 0

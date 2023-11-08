@@ -7,6 +7,7 @@ class RockPaperScissors:
     Implementation of a simple Rock Paper Scissors game. The player chooses a throw and the computer chooses a throw.
     The game will tell the player if they won, lost, or drew.
     """
+    DEFAULT_ROUNDS = 3
 
     def __init__(self) -> None:
         self.playable = ["Rock", "Paper", "Scissors"]
@@ -84,7 +85,7 @@ class RockPaperScissors:
         """
         return round_input >= 1
 
-    def play(self, rounds: int = 3) -> None:
+    def play(self, rounds: int = DEFAULT_ROUNDS) -> None:
         """
         Runs the game for a specified number of rounds.
 
@@ -108,7 +109,7 @@ class RockPaperScissors:
 
                 counter += result
 
-            if (counter):
+            if counter:
                 counter = int(counter / abs(counter))
             print(f"\nGame Result: {self.results[counter]}")
         else:
