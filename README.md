@@ -1,6 +1,8 @@
 # PyGameBox
 
-[![CI / CD](https://github.com/software-students-fall2023/3-python-package-exercise-prime-order/actions/workflows/build-release.yml/badge.svg)](https://github.com/software-students-fall2023/3-python-package-exercise-prime-order/actions/workflows/build-release.yml) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/software-students-fall2023/3-python-package-exercise-prime-order/blob/main/LICENSE)
+[![CI / CD](https://github.com/software-students-fall2023/3-python-package-exercise-prime-order/actions/workflows/build-release.yml/badge.svg)](https://github.com/software-students-fall2023/3-python-package-exercise-prime-order/actions/workflows/build-release.yml)
+![Version](https://img.shields.io/github/v/tag/software-students-fall2023/3-python-package-exercise-prime-order?label=Version)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/software-students-fall2023/3-python-package-exercise-prime-order/blob/main/LICENSE)
 
 ## Team Members
 
@@ -54,6 +56,16 @@ PyGameBox consists of the game classes: `GuessTheNumber`, `RockPaperScissors`, `
 > However, if you wish to handle the game logic yourself,
 > PyGameBox also provides you with a host of helper functions designed to make the implementation as simple as use.
 
+## Example use case
+
+Check out `examples/play.py` to see how to run the games using the `pygamebox` package.
+
+You can run the demo using:
+
+```bash
+python examples/play.py
+```
+
 ## Guess The Number
 
 ```python
@@ -65,7 +77,7 @@ game.play()
 
 ### Screenshot
 
-![](./images/GuessTheNumber.png)
+![](https://github.com/software-students-fall2023/3-python-package-exercise-prime-order/blob/main/images/GuessTheNumber.png?raw=True)
 
 ### Class Attributes
 
@@ -122,7 +134,7 @@ game.play()
 
 ### Screenshot
 
-![](./images/RPS.png)
+![](https://github.com/software-students-fall2023/3-python-package-exercise-prime-order/blob/main/images/RPS.png?raw=True)
 
 ### Class Attributes
 
@@ -173,7 +185,7 @@ game.play()
 
 ### Screenshot
 
-![](./images/WordScramble.png)
+![](https://github.com/software-students-fall2023/3-python-package-exercise-prime-order/blob/main/images/WordScramble.png?raw=True)
 
 ### Class Attributes
 
@@ -231,7 +243,7 @@ game.play()
 
 ### Screenshot
 
-![](./images/Hangman.png)
+![](https://github.com/software-students-fall2023/3-python-package-exercise-prime-order/blob/main/images/Hangman.png?raw=True)
 
 ### Class Attributes
 
@@ -291,7 +303,7 @@ game.play()
 
 ### Screenshot
 
-![](./images/Wordle.png)
+![](https://github.com/software-students-fall2023/3-python-package-exercise-prime-order/blob/main/images/Wordle.png?raw=True)
 
 ### Methods:
 
@@ -359,4 +371,4 @@ If you'd like to contribute to the PyGameBox project, follow these steps to set 
     python -m pytest
     ```
 
-Push your code changes, create a pull request and contribute to the project's development.
+* Push your code changes, create a pull request and contribute to the project's development.
