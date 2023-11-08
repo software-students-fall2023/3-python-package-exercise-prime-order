@@ -8,12 +8,9 @@
 
 # Description
 
-PyGamebox is a versatile Python package that simplifies the development of several popular games. It abstracts away the intricate details of game logic, allowing you to effortlessly import and integrate games like "Guess the Number", "Hangman", "Rock, Paper, Scissors", "Word Scramble", and "Wordle" into your own projects.
-
-With PyGamebox, you can create interactive and entertaining games without the need to reinvent the wheel. Focus on customizing the user experience and graphics while PyGamebox handles the game mechanics.
+PyGameBox is a versatile Python package that simplifies the development of several popular games. It abstracts away the intricate details of game logic, allowing you to effortlessly import and integrate games like "Guess the Number", "Hangman", "Rock, Paper, Scissors", "Word Scramble", and "Wordle" into your own projects.
 
 # Getting Started
-
 
 ## Prerequisites
 
@@ -28,28 +25,27 @@ pip install pygamebox
 ```
 
 ## Using it
-After installing the package, import pygamebox to your program. 
+After installing the package, import PyGameBox to your program. 
 ```python
 from pygamebox import *
 ```
 
-Pygamebox consists of 5 different games. Import each game as you desire. For eg:
+PyGameBox consists of 5 different games. If you want to have an implement any one of the 5 games, you can simply import it, instantiate a game object, and call `play()` on the game object. PyGameBox will handle all the game logic. However, if you wish to handle the game logic yourself, PyGameBox also provides you with a host of helper functions designed to make the implementation as simple as use.
 
-## Guess the number
-For example:
+## Guess The Number
 ```python
-from pygamebox import *
+from pygamebox import GuessTheNumber
 
 game = GuessTheNumber()
 game.play()
 ```
+
 ### Methods:
 1. `__init__(self, start: int = 1, end: int = 100) -> None`
-    * **Description**: Initializes a new game.
+    * **Description**: Initializes a new GuessTheNumber game.
     * **Parameters**:
         * start (int): The lower bound of the number range (default is 1).
         * end (int): The upper bound of the number range (default is 100).
-        * reset(self) -> None
 
 2. `reset(self) -> None`
     * **Description**: Resets the game by generating a new random number and setting the number of guesses to 0.
@@ -92,14 +88,14 @@ game.play()
 
 ### Methods:
 1. `__init__(self) -> None`
-    * **Description**: Initializes the Hangman game with a set of words for different difficulty levels and other game parameters.
+    * **Description**: Initializes the Hangman game with a set of words for different difficulty levels.
     * **Parameters**: None.
 
 2. `reset(self, difficulty: str, attempts: int) -> None`
     * **Description**: Resets the game to the specified difficulty level and number of attempts.
     * **Parameters**:
-        * difficulty (str): The difficulty level.
-        * attempts (int): The number of attempts allowed.
+        * difficulty (str): The difficulty level. Default difficulty is 'easy'.
+        * attempts (int): The number of attempts allowed. Default number of attempts is 3.
         * Returns: None.
 
 3. `get_word_list(self, difficulty: str) -> list[str]`
@@ -139,11 +135,11 @@ game.play()
 ```
 ### Methods:
 1. `__init__(self) -> None`
-    * Description: Initializes the RockPaperScissors game with the available choices and results.
+    * Description: Initializes the RockPaperScissors game.
     * Parameters: None.
 2. `get_user_throw(self) -> int`
     * Description: Gets the user's choice for Rock, Paper, or Scissors.
-    * Returns: The user's choice as an integer (0: Rock, 1: Paper, 2: Scissors).
+    * Returns: The user's choice `x` as an integer `x-1` (0: Rock, 1: Paper, 2: Scissors).
 3. `validate_input(self, user_input: Union[str, int]) -> bool`
     * Description: Validates the user's input to ensure it's a valid choice (1, 2, or 3).
     * Parameters:
@@ -171,6 +167,7 @@ game.play()
     * Parameters:
         *rounds (int, optional): The number of rounds to play (default is 1).
     * Returns: None.
+
 ## Word Scramble
 ```python
 from pygamebox import *
@@ -214,6 +211,7 @@ game.play()
         * difficulty (str, optional): The difficulty level (default is 'easy').
         * attempts (int, optional): The number of attempts allowed (default is 3).
     * Returns: None.
+
 ### Wordle
 ```python
 from pygamebox import *
@@ -258,7 +256,8 @@ game.play()
     * Returns: None.
 
 # Contributing
-If you'd like to contribute to the PyGamebox project, follow these steps to set up your development environment:
+
+If you'd like to contribute to the PyGameBox project, follow these steps to set up your development environment:
 
 * Clone the repository:
 ```bash
@@ -272,7 +271,7 @@ pipenv shell
 ```bash
 pipenv install
 ```
-* You can work on the module, add other games and resolve exisiting issues. Create Unit test for your functions to test them.
+* You can work on the module, add other games, or resolve exisiting issues. Create unit tests for your functions to test them.
 ```bash
 python -m pytest
 ```
