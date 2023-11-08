@@ -108,7 +108,8 @@ class RockPaperScissors:
 
                 counter += result
 
-            counter = int(counter / abs(counter))
+            if (counter):
+                counter = int(counter / abs(counter))
             print(f"\nGame Result: {self.results[counter]}")
         else:
             print("Please enter a valid number of rounds to play.")
