@@ -1,5 +1,7 @@
 # PyGameBox
 
+[![CI / CD](https://github.com/software-students-fall2023/3-python-package-exercise-prime-order/actions/workflows/build-release.yml/badge.svg)](https://github.com/software-students-fall2023/3-python-package-exercise-prime-order/actions/workflows/build-release.yml)
+
 # Team Members
 
 * [Aavishkar Gautam](https://github.com/aavishkar6)
@@ -78,6 +80,9 @@ game.play()
 7. `play(self) -> None`
     * **Description**: Plays the game. Continues playing until the user guesses the correct number.
 
+### Screenshot
+![](./images/GuessTheNumber.png)
+
 ## Hangman
 ```python
 from pygamebox import *
@@ -126,6 +131,9 @@ game.play()
         * attempts (int, optional): The number of attempts allowed (default is 10).
     * **Returns**: None.
 
+### Screenshot
+![](./images/Hangman.png)
+
 ## Rock, Paper, Scissors
 ```python
 from pygamebox import *
@@ -167,6 +175,9 @@ game.play()
     * Parameters:
         *rounds (int, optional): The number of rounds to play (default is 1).
     * Returns: None.
+
+### Screenshot
+![](./images/RPS.png)
 
 ## Word Scramble
 ```python
@@ -212,6 +223,9 @@ game.play()
         * attempts (int, optional): The number of attempts allowed (default is 3).
     * Returns: None.
 
+### Screenshot
+![](./images/WordScramble.png)
+
 ### Wordle
 ```python
 from pygamebox import *
@@ -255,6 +269,9 @@ game.play()
         * attempts (int, optional): The number of attempts allowed (default is DEFAULT_ATTEMPTS).
     * Returns: None.
 
+### Screenshot
+![](./images/Wordle.png)
+
 # Contributing
 
 If you'd like to contribute to the PyGameBox project, follow these steps to set up your development environment:
@@ -271,10 +288,8 @@ pipenv shell
 ```bash
 pipenv install
 ```
-* You can work on the module, add other games, or resolve exisiting issues. Create unit tests for your functions to test them.
+* You can work on the module, add other games, or resolve existing issues. Create unit tests for your functions to test them.
 ```bash
 python -m pytest
 ```
-Push you code changes, create a pull request and contribute to the project's development.
-
-
+Push your code changes, create a pull request and contribute to the project's development.
