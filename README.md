@@ -272,24 +272,56 @@ game.play()
 ### Screenshot
 ![](./images/Wordle.png)
 
-# Contributing
+# Contributing to PyGameBox
 
-If you'd like to contribute to the PyGameBox project, follow these steps to set up your development environment:
+Thank you for your interest in contributing to the PyGameBox project. This guide will help you set up your development environment and provide guidelines for making contributions.
 
-* Clone the repository:
-```bash
-git clone https://github.com/software-students-fall2023/3-python-package-exercise-prime-order.git
-```
-* cd to the folder and activate virutal environment:
-```bash
-pipenv shell
-```
-* Download dependencies.
-```bash
-pipenv install
-```
-* You can work on the module, add other games, or resolve existing issues. Create unit tests for your functions to test them.
+## Prerequisites and System Requirements
+
+Before you start contributing, ensure that you have the following prerequisites installed:
+
+- Python (version X.X or higher)
+- Pipenv
+- Git
+
+## Installation and Setup
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/software-students-fall2023/3-python-package-exercise-prime-order.git
+    ```
+
+2. Change to the project directory:
+
+    ```bash
+    cd 3-python-package-exercise-prime-order
+    ```
+
+3. Activate the virtual environment:
+
+    ```bash
+    pipenv shell
+    ```
+
+4. Download project dependencies:
+
+    ```bash
+    pipenv install
+    ```
+
+## Contributing Guidelines
+
+- Please follow these guidelines when contributing to the project:
+    - Comment and document your code for clarity.
+    - Write clear and concise commit messages.
+    - Use meaningful variable and function names.
+    - Keep your code DRY (Don't Repeat Yourself).
+
+## Running Tests
+
+To ensure the quality of your code, run tests using `pytest`:
+
 ```bash
 python -m pytest
-```
-Push your code changes, create a pull request and contribute to the project's development.
+
